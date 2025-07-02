@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import { Route, Routes } from 'react-router-dom';
 import Result from "./pages/result";
 import Orders from "./pages/orders";
+import ProtectedRoute from "./components/protectedRoute";
 
 function App() {
 
@@ -14,7 +15,11 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/auth' element={<Auth/>}/>
         <Route path='/result' element={<Result/>}/>
-        <Route path='/orders' element={<Orders/>}/>
+        <Route path='/orders' element={
+          <ProtectedRoute>
+            <Orders/>
+          </ProtectedRoute>
+        }/>
       </Routes>
     </>
   )
