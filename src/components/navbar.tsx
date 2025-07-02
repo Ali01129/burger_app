@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../redux/store";
 import { logout } from "../redux/slices/loginSlice";
+import Git from "../assets/github_logo.png";
 
 type RootState = ReturnType<typeof store.getState>;
 
@@ -19,7 +20,6 @@ const Navbar = () => {
       setSidebarOpen(false);
       console.log("p");
     };
-
 
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -90,6 +90,16 @@ const Navbar = () => {
           >
             {currentUser ? "Logout" : "Login"}
           </div>
+          <div>
+            <img
+              onClick={() =>
+                window.open("https://github.com/Ali01129", "_blank")
+              }
+              className="w-28 h-12 bg-white rounded-md cursor-pointer"
+              src={Git}
+              alt="Github"
+            />
+          </div>
         </div>
       </div>
 
@@ -119,6 +129,16 @@ const Navbar = () => {
             className="cursor-pointer hover:text-blue-400 cursor-pointer"
           >
             {currentUser ? "Logout" : "Login"}
+          </div>
+          <div>
+            <img
+              onClick={() =>
+                window.open("https://github.com/Ali01129", "_blank")
+              }
+              className="w-28 h-12 bg-white rounded-md cursor-pointer"
+              src={Git}
+              alt="Github"
+            />
           </div>
         </div>
       )}
