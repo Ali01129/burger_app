@@ -48,7 +48,7 @@ const Footer = () => {
         {islogedin?(
           <button className="py-3 px-6 border-1 border-[#966909] bg-[#dad735] text-[#966909] text-xl" onClick={handleOrderClick}>ORDER NOW</button>
         ):(
-          <button className={(lettuce||bacon||cheese||meat)?"py-3 px-6 border-1 border-[#966909] bg-[#dad735] text-[#966909] text-xl":"py-3 px-6 bg-[#c7c6c6] text-[#888888] text-xl"}>SIGN UP TO ORDER</button>
+          <button disabled={!(lettuce||bacon||cheese||meat)} className={(lettuce||bacon||cheese||meat)?"py-3 px-6 border-1 border-[#966909] bg-[#dad735] text-[#966909] text-xl":"py-3 px-6 bg-[#c7c6c6] text-[#888888] text-xl"} onClick={() => {navigate('/auth')}} >SIGN UP TO ORDER</button>
         )}
         {showModal && (
         <div className="fixed inset-0 bg-opacity-0 flex justify-center items-center z-50">
