@@ -3,19 +3,9 @@ import type { store } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import { Clear } from '../redux/slices/burgerSlice';
+import { Clear } from "../redux/slices/burgerSlice";
 
 type RootState = ReturnType<typeof store.getState>;
-
-interface LoginFormValues {
-  name: string;
-  street: string;
-  zipcode: string;
-  country: string;
-  email: string;
-  password: string;
-  deliveryMethod: string;
-}
 
 interface User {
   email: string;
@@ -32,7 +22,7 @@ interface Order {
 }
 
 function Result() {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const lettuce = useSelector((state: RootState) => state.burger.lettuce);
   const bacon = useSelector((state: RootState) => state.burger.bacon);
@@ -148,7 +138,7 @@ function Result() {
               email: "",
               deliveryMethod: "",
             }}
-            onSubmit={(values, { resetForm }) => {
+            onSubmit={(_, { resetForm }) => {
               AddOrder();
               dispatch(Clear());
               navigate("/");
