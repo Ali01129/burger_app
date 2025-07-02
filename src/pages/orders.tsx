@@ -36,7 +36,7 @@ function Orders() {
       }
 
       setLoading(false);
-    }, 2000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [currentUser]);
